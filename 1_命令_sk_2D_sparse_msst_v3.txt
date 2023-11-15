@@ -1,0 +1,23 @@
+训练与测试示例
+#############
+
+
+best_prec: 92.63934254956084
+CUDA_VISIBLE_DEVICES=2,3 python main_seg8_v3_pku_pre.py pku joint /data/cq/pku_hrnet_dict/xsub --gd 20 --lr 0.01 --lr_steps 25 30 35 --epochs 40 -b 64  --seg 8 --dropout 0.9 --model_name pku_xsub_sparse_msst_v3_seg8
+各类正确率平均值 92.5875%,   累计正确率92.5296
+CUDA_VISIBLE_DEVICES=1 python test_sk_seg8_msst_v3_seg8_pku.py pku joint /data/cq/pku_hrnet_dict/xsub checkpoint/2023060704_pku_xsub_sparse_msst_v3_seg8_seg_8_joint_model_best.pth.tar --batchsize 64 --save_scores pku_xsub_msst_v3_seg8_pre_joint
+
+best_prec: 93.365760917621
+CUDA_VISIBLE_DEVICES=0,1 python main_seg8_v3_pku_pre.py pku bone /data/cq/pku_hrnet_dict/xsub --gd 20 --lr 0.01 --lr_steps 25 30 35 --epochs 40 -b 64  --seg 8 --dropout 0.9 --model_name pku_xsub_sparse_msst_v3_seg8
+各类正确率平均值 93.4397%,   累计正确率93.3802
+CUDA_VISIBLE_DEVICES=1 python test_sk_seg8_msst_v3_seg8_pku.py pku bone /data/cq/pku_hrnet_dict/xsub checkpoint/2023060704_pku_xsub_sparse_msst_v3_seg8_seg_8_bone_model_best.pth.tar --batchsize 64 --save_scores pku_xsub_msst_v3_seg8_pre_bone
+
+best_prec: 89.07020970707221
+CUDA_VISIBLE_DEVICES=2,3 python main_seg8_v3_pku_pre.py pku joint_motion /data/cq/pku_hrnet_dict/xsub --gd 20 --lr 0.01 --lr_steps 25 30 35 --epochs 40 -b 64  --seg 8 --dropout 0.9 --model_name pku_xsub_sparse_msst_v3_seg8
+各类正确率平均值 88.8680%,   累计正确率88.7944
+CUDA_VISIBLE_DEVICES=1 python test_sk_seg8_msst_v3_seg8_pku.py pku joint_motion /data/cq/pku_hrnet_dict/xsub checkpoint/2023060704_pku_xsub_sparse_msst_v3_seg8_seg_8_joint_motion_model_best.pth.tar --batchsize 64 --save_scores pku_xsub_msst_v3_seg8_pre_joint_motion
+
+best_prec: 89.21722269901493
+CUDA_VISIBLE_DEVICES=0,1 python main_seg8_v3_pku_pre.py pku bone_motion /data/cq/pku_hrnet_dict/xsub --gd 20 --lr 0.01 --lr_steps 25 30 35 --epochs 40 -b 64  --seg 8 --dropout 0.9 --model_name pku_xsub_sparse_msst_v3_seg8
+各类正确率平均值 89.2994%,   累计正确率89.0163
+CUDA_VISIBLE_DEVICES=1 python test_sk_seg8_msst_v3_seg8_pku.py pku bone_motion /data/cq/pku_hrnet_dict/xsub checkpoint/2023060704_pku_xsub_sparse_msst_v3_seg8_seg_8_bone_motion_model_best.pth.tar --batchsize 64 --save_scores pku_xsub_msst_v3_seg8_pre_bone_motion

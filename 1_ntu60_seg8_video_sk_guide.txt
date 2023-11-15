@@ -1,0 +1,11 @@
+
+训练与测试命令的示例
+##################################
+
+Best Prec@1: 96.890
+CUDA_VISIBLE_DEVICES=0 python main2_TSM_iam_sk_guide_croped_rgb.py ntu_xsub RGB --arch resnet50 --num_segments 8 --gd 20 --lr 0.01 --lr_steps 25 40 50 --epochs 60 --start-epoch 0 --batch-size 32 -j 16 --dropout 0.5 --consensus_type=avg --eval-freq=1 --shift --shift_div=8 --shift_place=blockres --npb
+Class Accuracy 96.89%  Overall Prec@1 96.89% Prec@5 99.87%
+CUDA_VISIBLE_DEVICES=1 python test2_batch_TSM_stmem_sk_guide_croped_rgb.py ntu_xsub --weights=checkpoint/model2_TSM_stmem_sk_guide_croped_rgb_ntu_xsub_RGB_resnet50_shift8_blockres_avg_segment8_e50/ckpt.best.pth.tar --test_segments=8 --test_crops=1 --batch_size=8 --result_name=model2_TSM_stmem_ntu_xsub_sk_guide_croped_rgb_seg8_34_60epoch.npz
+
+
+
